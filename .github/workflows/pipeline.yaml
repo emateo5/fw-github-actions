@@ -26,9 +26,9 @@ jobs:
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
 
-job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-     - name: Imprimir mensaje de bienvenida 2
-       run: echo "¡Bienvenido a nuestro proyecto!"
+  job2:
+      needs: job1
+      runs-on: ubuntu-latest
+      steps:
+      - name: Imprimir mensaje de bienvenida 2
+        run: echo "¡Bienvenido a nuestro proyecto!"
