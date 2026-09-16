@@ -25,4 +25,4 @@ job2:
     runs-on: ubuntu-latest
     steps:
      - name: Imprimir mensaje de bienvenida 2
-        run: echo "¡Bienvenido a nuestro proyecto!"|
+        run: echo "¡Bienvenido a nuestro proyecto!"
