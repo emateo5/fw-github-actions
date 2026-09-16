@@ -1,0 +1,28 @@
+on: 
+  push:
+    branches:
+      - main
+      - feature/*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Lista archivos
+        run: |
+          ls -la
+
+      - name: Imprimir mensaje de bienvenida
+        run: |
+             echo "¡Bienvenido a nuestro proyecto!"
+             echo "Estamos construyendo y probando nuestro código."
+             echo "¡Gracias por contribuir!"
+
+job2:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Imprimir mensaje de bienvenida 2
+        run: echo "¡Bienvenido a nuestro proyecto!"|
