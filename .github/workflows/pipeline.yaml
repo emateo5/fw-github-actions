@@ -29,8 +29,13 @@ jobs:
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
 
+      - name: Echo Secret
+        run: echo "${{ secrets.SECRETO }}" > secreto.txt
+
       - name: Echo file
-        run: cat hola.txt
+        run: |
+            cat hola.txt
+            cat secreto.txt
 
   job2:
       needs: job1
