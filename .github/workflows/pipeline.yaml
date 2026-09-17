@@ -14,16 +14,10 @@ on:
 
 jobs:
   job1:
+    environment: develop
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Lista archivos
-        run: |
-          ls -la
-
-      - name: Imprimir mensaje de bienvenida
+      - name: Imprimir mensaje de bienvenida job1
         run: |
              echo "¡Bienvenido, -${{ vars.NAME }}- a nuestro proyecto!"
              echo "Estamos construyendo y probando nuestro código."
@@ -32,14 +26,29 @@ jobs:
       - name: Echo Secret
         run: echo "${{ secrets.SECRETO }}" > secreto.txt
 
-      - name: Echo file
-        run: |
-            cat hola.txt
-            cat secreto.txt
-
   job2:
+      environment: production
       needs: job1
       runs-on: ubuntu-latest
       steps:
-      - name: Imprimir mensaje de bienvenida 2
-        run: echo "¡Bienvenido a nuestro proyecto!"
+      - name: Imprimir mensaje de bienvenida job2
+        run: |
+             echo "¡Bienvenido, -${{ vars.NAME }}- a nuestro proyecto!"
+             echo "Estamos construyendo y probando nuestro código."
+             echo "¡Gracias por contribuir!"
+
+      - name: Echo Secret
+        run: echo "${{ secrets.SECRETO }}" > secreto.txt
+
+  job3:
+      needs: job1
+      runs-on: ubuntu-latest
+      steps:
+      - name: Imprimir mensaje de bienvenida job2
+        run: |
+             echo "¡Bienvenido, -${{ vars.NAME }}- a nuestro proyecto!"
+             echo "Estamos construyendo y probando nuestro código."
+             echo "¡Gracias por contribuir!"
+
+      - name: Echo Secret
+        run: echo "${{ secrets.SECRETO }}" > secreto.txt
