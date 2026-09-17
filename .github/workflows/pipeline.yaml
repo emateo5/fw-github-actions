@@ -25,7 +25,7 @@ jobs:
 
       - name: Imprimir mensaje de bienvenida
         run: |
-             echo "¡Bienvenido a nuestro proyecto!"
+             echo "¡Bienvenido, -${{ vars.NAME }}- a nuestro proyecto!"
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
 
