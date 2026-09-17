@@ -1,6 +1,7 @@
 name: Pipeline de CI/CD
 run-name: Deploy in live
 on: 
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,6 +9,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "*.md"
 
 jobs:
   job1:
@@ -25,7 +28,7 @@ jobs:
              echo "¡Bienvenido a nuestro proyecto!"
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
-             
+
       - name: Echo file
         run: cat hola.txt
 
