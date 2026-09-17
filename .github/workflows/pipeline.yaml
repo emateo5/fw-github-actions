@@ -25,6 +25,9 @@ jobs:
              echo "¡Bienvenido a nuestro proyecto!"
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
+             
+      - name: Echo file
+        run: cat hola.txt
 
   job2:
       needs: job1
