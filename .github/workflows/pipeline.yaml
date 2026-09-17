@@ -1,29 +1,21 @@
 name: Pipeline de CI/CD
-run-name: Deploy in live ${{ github.actor}}
+run-name: Deploy in live by ${{ github.actor }} 
 on: 
-  workflow_dispatch:
   push:
     branches:
       - main
-
-  pull_request:
-    branches:
-      - main
-    paths:
-      - "*.md"
+      - develop
 
 jobs:
   job1:
-    environment: ${{github.ref_name == 'main' && 'production' || 'develop'}}
+    environment: ${{ github.ref_name == 'main' && 'production' || 'develop' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Imprimir mensaje de bienvenida job1
+      - name: Imprimir mensaje de bienvenida
         run: |
-             echo "¡Bienvenido, -${{ vars.NAME }}- a nuestro proyecto!"
+             echo "¡Bienvenido a nuestro proyecto ${{ vars.NAME }}!"
              echo "Estamos construyendo y probando nuestro código."
              echo "¡Gracias por contribuir!"
 
-      - name: Echo Secret
+      - name: Echo Secreto
         run: echo "${{ secrets.SECRETO }}" > secreto.txt
-
- 
